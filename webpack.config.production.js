@@ -5,9 +5,6 @@ const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const { ProvidePlugin } = require('webpack');
 
 module.exports = {
-    // Source: https://github.com/preactjs/preact-cli/blob/master/packages/cli/lib/lib/webpack/webpack-base-config.js
-    // Source: https://github.com/preactjs/preact-cli/wiki/Config-Recipes
-    // Source: https://stackoverflow.com/questions/40382842/cant-import-css-scss-modules-typescript-says-cannot-find-module
 
     mode: 'production',
     devtool: 'eval',
@@ -34,13 +31,10 @@ module.exports = {
                 },
             },
             {
-                // User styles
                 test: /\.(scss|css)$/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    {
-                        loader: 'css-modules-typescript-loader',
-                    },
+                    'css-modules-typescript-loader',
                     {
                         loader: 'css-loader',
                         options: {
@@ -64,34 +58,21 @@ module.exports = {
         minimizer: [
             // Use esbuild to minify
             new ESBuildMinifyPlugin({
-                sourcemap: true,
+                sourcemap: false,
                 target: 'es2015',
             }),
         ],
     },
 
     resolve: {
-        extensions: [
-            '.mjs',
-            '.js',
-            '.jsx',
-            '.ts',
-            '.tsx',
-            '.json',
-            '.less',
-            '.pcss',
-            '.scss',
-            '.sass',
-            '.styl',
-            '.css',
-            '.wasm',
-        ],
+        extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json', '.less', '.pcss', '.scss', '.sass', '.styl', '.css', '.wasm',],
     },
 
     plugins: [
         new HtmlWebpackPlugin({
             template: "./src/index.ejs",
             title: 'My App',
+            favicon: './src/assets/favicon.ico'
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[hash].css',

@@ -41,12 +41,8 @@ module.exports = {
                 // User styles
                 test: /\.(scss|css)$/,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                    },
-                    {
-                        loader: 'css-modules-typescript-loader',
-                    },
+                    MiniCssExtractPlugin.loader,
+                    'css-modules-typescript-loader',
                     {
                         loader: 'css-loader',
                         options: {
@@ -77,21 +73,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: [
-            '.mjs',
-            '.js',
-            '.jsx',
-            '.ts',
-            '.tsx',
-            '.json',
-            '.less',
-            '.pcss',
-            '.scss',
-            '.sass',
-            '.styl',
-            '.css',
-            '.wasm',
-        ],
+        extensions: ['.mjs','.js','.jsx','.ts','.tsx','.json','.less','.pcss','.scss','.sass','.styl','.css','.wasm',],
     },
 
     plugins: [
