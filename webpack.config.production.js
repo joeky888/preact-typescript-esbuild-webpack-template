@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
-const { ProvidePlugin } = require('webpack');
 
 module.exports = {
 
@@ -77,10 +76,6 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].[hash].css',
             chunkFilename: '[id].[hash].css',
-        }),
-        new ProvidePlugin({
-            h: ['preact', 'h'],
-            Fragment: ['preact', 'Fragment']
         }),
     ],
 };

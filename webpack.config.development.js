@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
-const { ProvidePlugin } = require('webpack');
 
 module.exports = {
     // Source: https://github.com/preactjs/preact-cli/blob/master/packages/cli/lib/lib/webpack/webpack-base-config.js
@@ -84,10 +83,6 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].[chunkhash].css',
             chunkFilename: '[id].[chunkhash].css',
-        }),
-        new ProvidePlugin({
-            h: ['preact', 'h'],
-            Fragment: ['preact', 'Fragment']
         }),
     ],
 };
