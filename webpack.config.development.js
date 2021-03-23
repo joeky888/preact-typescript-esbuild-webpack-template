@@ -79,6 +79,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./src/index.ejs",
             title: 'My App',
+            favicon: './src/assets/favicon.ico',
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[chunkhash].css',
