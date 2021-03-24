@@ -1,9 +1,11 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { ESBuildMinifyPlugin } = require('esbuild-loader');
+import * as path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { ESBuildMinifyPlugin } from 'esbuild-loader';
+import * as webpack from 'webpack';
+import 'webpack-dev-server';
 
-module.exports = {
+const config: webpack.Configuration = {
 
     mode: 'production',
     devtool: 'eval',
@@ -86,3 +88,5 @@ module.exports = {
         }),
     ],
 };
+
+export default config;

@@ -1,9 +1,11 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { ESBuildMinifyPlugin } = require('esbuild-loader');
+import * as path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { ESBuildMinifyPlugin } from 'esbuild-loader';
+import * as webpack from 'webpack';
+import 'webpack-dev-server';
 
-module.exports = {
+const config: webpack.Configuration = {
     // Source: https://github.com/preactjs/preact-cli/blob/master/packages/cli/lib/lib/webpack/webpack-base-config.js
     // Source: https://github.com/preactjs/preact-cli/wiki/Config-Recipes
     // Source: https://stackoverflow.com/questions/40382842/cant-import-css-scss-modules-typescript-says-cannot-find-module
@@ -94,3 +96,5 @@ module.exports = {
         }),
     ],
 };
+
+export default config;
